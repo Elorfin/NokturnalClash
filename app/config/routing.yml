@@ -1,0 +1,18 @@
+# Default route
+default:
+    path:     /{_locale}/
+    requirements:
+        _locale: "%locale_constraint%"
+    defaults:
+        _controller: "AppBundle:About:index"
+        _locale: "%locale%"
+
+# Application routes
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+    prefix:   /{_locale}/
+    requirements:
+        _locale: "%locale_constraint%"
+    defaults:
+        _locale: "%locale%"

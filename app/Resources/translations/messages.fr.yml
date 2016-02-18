@@ -1,0 +1,30 @@
+# Application
+link.current:           section courante
+link.toggle_navigation: Afficher/Masquer le menu
+link.about:             à propos
+link.galleries:         galeries
+link.blog:              live reports
+link.contact:           contact
+
+# About
+about.title:        A propos
+about.edit:         Modifier
+about.no_record:    Aucune présentation trouvée.
+about.email:        Email
+about.facebook:     Facebook
+about.flickr:       Flickr
+about.instagram:    Instagram
+about.live_journal: LiveJournal
+
+# Blog
+blog.title:     Live Reports
+blog.no_record: Aucun article n'a été trouvé dans le Blog.
+
+# Contact
+contact.title:        contact
+contact.follow_me:    Suivez-moi
+contact.contact_me:   Contactez-moi
+contact.send_message: envoyer mon message
+contact.message_sent: Votre message a correctement été envoyé.
+
+# Galleries

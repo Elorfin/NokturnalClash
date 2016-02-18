@@ -1,0 +1,31 @@
+# Application
+link.current:           current section
+link.toggle_navigation: toggle navigation
+link.about:             about
+link.galleries:         galleries
+link.blog:              live reports
+link.contact:           contact
+
+# About
+about.title:        About
+about.edit:         Edit
+about.no_record:    No presentation found.
+about.email:        Email
+about.facebook:     Facebook
+about.flickr:       Flickr
+about.instagram:    Instagram
+about.live_journal: LiveJournal
+
+# Blog
+blog.title:     Live Reports
+blog.no_record: No post found in the Blog.
+
+# Contact
+contact.title:            contact
+contact.follow_me:        Follow me
+contact.contact_me:       Contact me
+contact.send_message:     send my message
+contact.message_sent:     Your message has been correctly sent.
+contact.message_not_sent: Your message has been correctly sent.
+
+# Galleries

@@ -1,0 +1,21 @@
+parameters:
+    # Localization
+    locale:            en
+    locale_constraint: en|fr
+    locales_available: [ en, fr ]
+
+    # Database
+    database_host:     127.0.0.1
+    database_port:     null
+    database_name:     nokturnal_clash
+    database_user:     root
+    database_password: null
+
+    # Mailer
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_user:       null
+    mailer_password:   null
+
+    # Secret Token
+    secret:            526d4b9bbda45c2440ae1e76036a117048de8178

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'" />
+
+        <title>{% block title %}Nokturnal Clash{% endblock %}</title>
+
+        <meta name="description" content="{% block description %}{% endblock %}" />
+        <meta name="keywords"    content="{% block keywords    %}{% endblock %}" />
+
+        {# Favicon #}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}" />
+
+        {# Application styles #}
+        <link rel="stylesheet" media="all" type="text/css" href="{{ asset('dist/css/app.min.css') }}" />
+
+        {# Other styles #}
+        {% block stylesheets %}{% endblock %}
+    </head>
+
+    <body>
+        {# Top menu #}
+        {% include 'header.html.twig' %}
+
+        {# Content #}
+        <div class="content">
+            <div class="container-fluid">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+
+        {# Footer menu (admin links + social links) #}
+        {% include 'footer.html.twig' %}
+
+        {% block javascripts %}
+            {# Include jQuery & jQuery plugins #}
+            <script type="text/javascript" src="{{ asset('dist/js/jquery.min.js') }}"></script>
+
+            {# Include Bootstrap JS #}
+            <script type="text/javascript" src="{{ asset('dist/js/bootstrap.min.js') }}"></script>
+
+            {# Initialize Bootstrap #}
+            <script type="text/javascript">
+                $(function () {
+                    // Enable tooltip
+                    $('body').tooltip({
+                        selector: '[data-toggle="tooltip"]'
+                    })
+                });
+            </script>
+        {% endblock %}
+    </body>
+</html>

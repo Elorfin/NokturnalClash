@@ -1,0 +1,63 @@
+{# Get About data #}
+{% set about = get_about() %}
+
+<footer class="hidden-xs">
+    <nav class="navbar navbar-fixed-bottom navbar-default" role="navigation">
+        <div class="container-fluid">
+            {#{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <ul class="nav navbar-nav navbar-left">
+                    <li role="presentation">
+                        <a href="{{ path('admin_logout') }}">
+                            <span class="fa fa-fw fa-sign-out"></span>
+                            {{ app.translator.trans('logout') }}
+                        </a>
+                    </li>
+
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <li role="presentation">
+                        <a href="{{ path('user_list') }}">
+                            <span class="fa fa-fw fa-users"></span>
+                            {{ app.translator.trans('users') }}
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            {% endif %}#}
+
+            <ul class="nav navbar-nav navbar-right">
+                {% if about.email is defined and about.email is not empty %}
+                <li role="presentation">
+                    <a href="mailto:{{ about.email }}">{{ about.email }}</a>
+                </li>
+                {% endif %}
+
+                {% if about.instagram is defined and about.instagram is not empty %}
+                <li role="presentation">
+                    <a href="{{ about.instagram }}" title="{{ 'about.instagram'|trans }}">
+                        <span class="fa fa-fw fa-instagram"></span>
+                        <span class="sr-only">{{ 'about.instagram'|trans }}</span>
+                    </a>
+                </li>
+                {% endif %}
+
+                {% if about.flickr is defined and about.flickr is not empty %}
+                <li role="presentation">
+                    <a href="{{ about.flickr }}" title="{{ 'about.flickr'|trans }}">
+                        <span class="fa fa-fw fa-flickr"></span>
+                        <span class="sr-only">{{ 'about.flickr'|trans }}</span>
+                    </a>
+                </li>
+                {% endif %}
+
+                {% if about.facebook is defined and about.facebook is not empty %}
+                <li role="presentation">
+                    <a href="{{ about.facebook }}" title="{{ 'about.facebook'|trans }}">
+                        <span class="fa fa-fw fa-facebook"></span>
+                        <span class="sr-only">{{ 'about.facebook'|trans }}</span>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</footer>

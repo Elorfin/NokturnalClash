@@ -1,0 +1,62 @@
+{% macro menuItem(name, label, url) %}
+    {% set current = (name in app.request.get('_route')) %}
+    <li role="presentation" {% if current %}class="active"{% endif %}>
+        <a href="{{ url }}">
+            {{ label|trans }}
+
+            {% if current %}
+            <span class="sr-only">({{ 'link.current'|trans }})</span>
+            {% endif %}
+        </a>
+    </li>
+{% endmacro %}
+
+{% import _self as macros %}
+
+<header>
+    <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-nav">
+                    <span class="sr-only">{{ 'link.toggle_navigation'|trans }}</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="{{ path('default') }}">
+                    <img src="{{ asset('dist/images/logo/logo-small.png') }}" alt="Nokturnal Clash logo" />
+                    <span class="sr-only">{{ 'link.about'|trans }}</span>
+
+                    {#{% if 'about' == page %}
+                        <span class="sr-only">({{ 'link.current'|trans }})</span>
+                    {% endif %}#}
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="header-nav">
+                <ul class="nav navbar-nav site-nav">
+                    {{ macros.menuItem('galleries',  'link.galleries', path('galleries')) }}
+
+                    {{ macros.menuItem('blog', 'link.blog',       path('blog')) }}
+
+                    {{ macros.menuItem('contact',     'link.contact',    path('contact')) }}
+                </ul>
+
+                {% set localeInfo = locale_get_info() %}
+                <ul class="nav navbar-nav navbar-right language-list">
+                    {% for localeAvailable in localeInfo.available %}
+                    <li {% if localeAvailable == localeInfo.current %}class="active"{% endif %}>
+                        <a href="{{ locale_switch_url(localeAvailable) }}">
+                            <span class="visible-xs-inline-block">{{ ('locale.' ~ localeAvailable)|trans }}</span>
+                            <span class="language language-{{ localeAvailable }}"></span>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+</header>

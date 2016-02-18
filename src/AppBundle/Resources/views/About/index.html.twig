@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+
+{# Title of the Page #}
+{% block title %}{{ parent() }} - {{ 'about.title'|trans }}{% endblock %}
+
+{# Get About data #}
+{% set about = get_about() %}
+
+{# Content of the Page #}
+{% block content -%}
+    <h1 class="sr-only">{{ 'about.title'|trans }}</h1>
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            {# Display Edit link for Administrators #}
+            {% if is_granted('ROLE_ADMIN') %}
+            <div class="btns-top text-right">
+                <a href="{{ path('about_edit') }}" class="btn btn-primary">
+                    <span class="fa fa-pencil"></span>
+                    {{ 'about_edit'|trans }}
+                </a>
+            </div>
+            {% endif %}
+
+            {% if about is not null and about.presentation is not empty %}
+            <div class="panel panel-default">
+                <div class="panel-body text-justify">
+                    {{ about.presentation | raw }}
+                </div>
+            </div>
+            {% elseif is_granted('ROLE_ADMIN') %}
+            {# Display a message to the Admin #}
+            <em class="no_record">{{ 'about.no_record'|trans }}</em>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

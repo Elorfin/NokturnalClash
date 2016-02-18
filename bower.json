@@ -1,0 +1,12 @@
+{
+    "name": "nokturnal-clash",
+    "dependencies": {
+        "jquery": "latest",
+        "malihu-custom-scrollbar-plugin": "latest",
+        "bootstrap": "latest",
+        "font-awesome": "latest",
+        "angular": "latest",
+        "angular-sanitize": "latest",
+        "ng-file-upload": "latest"
+    }
+}

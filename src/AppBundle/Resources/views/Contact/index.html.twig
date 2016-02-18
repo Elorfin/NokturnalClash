@@ -1,0 +1,70 @@
+{% extends "::base.html.twig" %}
+
+{# Title of the Page #}
+{% block title %}{{ parent() }} - {{ 'contact.title'|trans }}{% endblock %}
+
+{# Get About data #}
+{% set about = get_about() %}
+
+{% block content %}
+    <h1 class="sr-only">{{ 'contact.title'|trans }}</h1>
+
+    <div class="row">
+        <div class="col-md-offset-2 col-md-5">
+            <h2 class="page-header text-right">{{ 'contact.contact_me'|trans }}</h2>
+
+            {{ form_start(contactForm) }}
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        {{ form_widget(contactForm) }}
+                    </div>
+                </div>
+
+                <div class="btns-bottom">
+                    <button type="submit" class="btn pull-right btn-primary">
+                        <span class="fa fa-fw fa-send"></span>
+                        {{ 'contact.send_message'|trans }}
+                    </button>
+                </div>
+            {{ form_end(contactForm) }}
+        </div>
+
+        <div class="col-md-3">
+            <h2 class="page-header text-right">{{ 'contact.follow_me'|trans }}</h2>
+
+            <div class="list-group">
+                {% if about.facebook is defined and about.facebook is not empty %}
+                <a class="list-group-item" href="{{ about.facebook }}">
+                    <span class="fa fa-fw fa-facebook"></span> {{ 'about.facebook'|trans }}
+                </a>
+                {% endif %}
+
+                {% if about.instagram is defined and about.instagram is not empty %}
+                <a class="list-group-item" href="{{ about.instagram }}">
+                    <span class="fa fa-fw fa-instagram"></span> {{ 'about.instagram'|trans }}
+                </a>
+                {% endif %}
+
+                {% if about.flickr is defined and about.flickr is not empty %}
+                <a class="list-group-item" href="{{ about.flickr }}">
+                    <span class="fa fa-fw fa-flickr"></span> {{ 'about.flickr'|trans }}
+                </a>
+                {% endif %}
+
+                {% if about.liveJournal is defined and about.liveJournal is not empty %}
+                <a class="list-group-item" href="{{ about.liveJournal }}">
+                    <span class="fa fa-fw fa-pencil"></span> {{ 'about.live_journal'|trans }}
+                </a>
+                {% endif %}
+            </div>
+
+            {% if about.email is defined and about.email is not empty %}
+            <div class="panel panel-default">
+                <div class="panel-body text-center">
+                    <a href="mailto:{{ about.email }}">{{ about.email }}</a>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+# Defines Application services
+services:
+    # Services for Translatable Extension
+    gedmo.listener.translatable:
+        class: Gedmo\Translatable\TranslatableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ "@annotation_reader" ] ]
+            - [ setDefaultLocale, [ %locale% ] ]
+            - [ setTranslationFallback, [ false ] ]
+
+    # KernelRequest listener
+    extension.listener:
+        class: AppBundle\Listener\TranslatableExtensionListener
+        calls:
+            - [ setContainer, [ "@service_container" ] ]
+        tags:
+            # translatable sets locale after router processing
+            - { name: kernel.event_listener, event: kernel.request, method: onLateKernelRequest, priority: -10 }
+            # translatable sets locale such as default application locale before command execute
+            - { name: kernel.event_listener, event: console.command, method: onConsoleCommand, priority: -10 }
+
+    # App services
+    app.twig.localization_extension:
+        class: AppBundle\Twig\LocalizationExtension
+        arguments:
+            router:           '@router'
+            requestStack:     '@request_stack'
+            availableLocales: %locales_available%
+        tags:
+            - { name: twig.extension }
+
+    app.twig.about_extension:
+        class: AppBundle\Twig\AboutExtension
+        arguments:
+            om: '@doctrine.orm.entity_manager'
+        tags:
+            - { name: twig.extension }
