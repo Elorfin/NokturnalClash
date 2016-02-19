@@ -21,10 +21,12 @@ blog.title:     Live Reports
 blog.no_record: Aucun article n'a été trouvé dans le Blog.
 
 # Contact
-contact.title:        contact
-contact.follow_me:    Suivez-moi
-contact.contact_me:   Contactez-moi
-contact.send_message: envoyer mon message
-contact.message_sent: Votre message a correctement été envoyé.
+contact.title:            Contact
+contact.follow_me:        Suivez-moi
+contact.contact_me:       Contactez-moi
+contact.send_message:     envoyer mon message
+contact.message_sent:     Votre message a correctement été envoyé.
+contact.message_not_sent: Nous sommes désolés, votre message n'a pas pu être envoyé. Veuillez réessayer plus tard.
 
 # Galleries
+gallery.title: Galeries

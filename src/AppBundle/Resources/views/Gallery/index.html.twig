@@ -1,5 +1,9 @@
 {% extends "::base.html.twig" %}
 
+{# Title of the Page #}
+{% block title %}{{ parent() }} - {{ 'gallery.title'|trans }}{% endblock %}
+
+{# Content of the Page #}
 {% block content %}
     <div class="row galleries" data-ng-app="gallery" data-ng-cloak="">
         <div class="galleries-list col-md-2 text-right">

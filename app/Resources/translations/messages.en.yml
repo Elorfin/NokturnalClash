@@ -21,11 +21,12 @@ blog.title:     Live Reports
 blog.no_record: No post found in the Blog.
 
 # Contact
-contact.title:            contact
+contact.title:            Contact
 contact.follow_me:        Follow me
 contact.contact_me:       Contact me
 contact.send_message:     send my message
 contact.message_sent:     Your message has been correctly sent.
-contact.message_not_sent: Your message has been correctly sent.
+contact.message_not_sent: We are sorry, your message could not be sent. Please try again later.
 
 # Galleries
+gallery.title: Galleries

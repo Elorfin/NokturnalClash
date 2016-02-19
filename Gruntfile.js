@@ -119,6 +119,17 @@ module.exports = function (grunt) {
                 flatten: true,
                 filter: 'isFile'
             }
+        },
+
+        // Watcher
+        watch: {
+            less: {
+                files: [
+                    'app/Resources/public/**/*',
+                    'app/Resources/theme/**/*.less'
+                ],
+                tasks: [ 'build' ]
+            }
         }
     });
 
@@ -126,6 +137,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Register our own custom task alias.
     grunt.registerTask('build', ['copy', 'concat', 'less']);

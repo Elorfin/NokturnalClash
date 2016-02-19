@@ -32,14 +32,26 @@ body {
     position: relative;
     height: 100%;
     background: url('../images/logo/logo-large.png') no-repeat 95% 92%;
-    padding-top: @navbar-height;
+    padding-top: @navbar-height + 7px; // Includes the lines under header
 }
 
 header {
     font-size: 21px;
 
     .navbar-nav > li.active {
-        background: url('../images/menu-active.png') no-repeat bottom center;
+        position: relative;
+
+        &:after {
+            position: absolute;
+            content: " ";
+            height: 24px;
+            width: 18px;
+            display: block;
+            margin-left: -9px;
+            bottom: -9px;
+            left: 50%;
+            /*background: url('../images/lys.png') no-repeat center center;*/
+        }
     }
 
     .site-nav > li {
@@ -76,9 +88,11 @@ header {
             position: absolute;
             display: block;
             left: 70px + @grid-gutter-width;
-            bottom: 0;
+            bottom: -6px;
+            height: 5px;
             right: floor(@grid-gutter-width / 2);
-            border-bottom: 1px solid @gray-dark;
+            border-top: 1px solid @gray-dark;
+            border-bottom: 1px dashed @gray-dark;
         }
 
         // Style collapsed navbar for small screen
@@ -117,7 +131,7 @@ table {
 }
 
 .page-header {
-    color: fade(@gray, 90%);
+    color: @gray-light;
     font-size: 26px;
     font-weight: 500;
     margin: 10px 0 24px;
