@@ -5,7 +5,6 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Blog\Post;
@@ -24,15 +23,14 @@ class BlogController extends Controller
      *
      * @Route("", name="blog")
      * @Method("GET")
-     * @Template()
      */
     public function indexAction()
     {
         $posts = $this->getDoctrine()->getRepository('AppBundle:Blog\Post')->findAll();
 
-        return [
+        return $this->render('::Blog/index.html.twig', [
             'posts' => $posts,
-        ];
+        ]);
     }
 
     /**
@@ -42,13 +40,12 @@ class BlogController extends Controller
      *
      * @Route("/{id}", name="blog_show", requirements={"id" = "\d+"})
      * @Method("GET")
-     * @Template()
      */
     public function showAction(Post $post)
     {
-        return [
+        return $this->render('::Blog/show.html.twig', [
             'post' => $post
-        ];
+        ]);
     }
 
     /**
@@ -58,7 +55,6 @@ class BlogController extends Controller
      *
      * @Route("/new", name="blog_new")
      * @Method({"GET", "POST"})
-     * @Template()
      */
     public function newAction(Request $request)
     {
@@ -69,9 +65,9 @@ class BlogController extends Controller
         // Check if the form is submitted or just rendered
         $this->handleForm($form, $post, $request);
 
-        return [
+        return $this->render('::Blog/new.html.twig', [
             'form' => $form->createView(),
-        ];
+        ]);
     }
 
     /**
@@ -82,7 +78,6 @@ class BlogController extends Controller
      *
      * @Route("/{id}", name="blog_edit", requirements={"id" = "\d+"})
      * @Method({"GET", "PUT"})
-     * @Template()
      */
     public function editAction(Post $post, Request $request)
     {
@@ -92,9 +87,9 @@ class BlogController extends Controller
         // Check if the form is submitted or just rendered
         $this->handleForm($form, $post, $request);
 
-        return [
+        return $this->render('::Blog/edit.html.twig', [
             'form' => $form->createView(),
-        ];
+        ]);
     }
 
     /**

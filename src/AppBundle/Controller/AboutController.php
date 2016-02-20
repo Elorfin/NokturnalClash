@@ -7,9 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-use AppBundle\Entity\About;
 use AppBundle\Form\AboutType;
 
 /**
@@ -25,12 +23,11 @@ class AboutController extends Controller
      *
      * @Route("", name="about")
      * @Method("GET")
-     * @Template()
      */
     public function indexAction()
     {
         // We do nothing because About data are already available through all the Application via a Twig extension
-        return [];
+        return $this->render('::About/index.html.twig', []);
     }
 
     /**
@@ -40,7 +37,6 @@ class AboutController extends Controller
      *
      * @Route("/edit", name="about_edit")
      * @Method({"GET", "POST"})
-     * @Template()
      */
     public function editAction(Request $request)
     {
@@ -61,8 +57,8 @@ class AboutController extends Controller
             }
         }
 
-        return [
+        return $this->render('::About/edit.html.twig', [
             'form' => $form->createView(),
-        ];
+        ]);
     }
 }

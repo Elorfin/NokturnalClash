@@ -74,6 +74,10 @@ class Post
         return $this->content;
     }
 
+    /**
+     * Set locale for the current texts
+     * @param $locale
+     */
     public function setTranslatableLocale($locale)
     {
         $this->locale = $locale;

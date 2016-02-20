@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "be2e81d1b09c745721bd61a4f1b3c6b1",
-    "content-hash": "9f9afde6bfc10968ac831c695e5cce40",
+    "hash": "513afc1cfa8c7f193e942ad60c21db38",
+    "content-hash": "48ac8fbd4075eee912bbad085aeda5b5",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -926,6 +926,48 @@
                 "orm"
             ],
             "time": "2016-01-05 21:34:58"
+        },
+        {
+            "name": "elorfin/resource-bundle",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Elorfin/ResourceBundle.git",
+                "reference": "e4c73b5de80c1efb5601f271776cec60455f9f64"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Elorfin/ResourceBundle/zipball/e4c73b5de80c1efb5601f271776cec60455f9f64",
+                "reference": "e4c73b5de80c1efb5601f271776cec60455f9f64",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.1"
+            },
+            "type": "bundle",
+            "autoload": {
+                "psr-4": {
+                    "Elorfin\\ResourceBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Axel Penin",
+                    "email": "penin.axel@gmail.com"
+                }
+            ],
+            "description": "Provides basic resource (image, audio, video) management for symfony 2 application",
+            "homepage": "http://github.com/Elorfin/ReactorBundle",
+            "keywords": [
+                "core",
+                "library",
+                "symfony"
+            ],
+            "time": "2016-02-04 10:03:05"
         },
         {
             "name": "gedmo/doctrine-extensions",

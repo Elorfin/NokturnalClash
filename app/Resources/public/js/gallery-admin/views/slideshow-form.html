@@ -1,0 +1,17 @@
+<div class="gallery-slideshow-form">
+    <!-- Add button -->
+    <button type="button" class="btn btn-primary" data-ng-click="addPage()">
+        <span class="fa fa-fw fa-plus"></span>
+        Add photo
+    </button>
+
+    <!-- Empty message -->
+    <em data-ng-if="pages.length == 0">There is no photo in this gallery.</em>
+
+    <!-- Photos list -->
+    <div class="row pages" data-ng-if="pages.length > 0">
+        <div data-ng-repeat="page in pages" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 page-container">
+            <gallery-page-form data-page="page"></gallery-page-form>
+        </div>
+    </div>
+</div>

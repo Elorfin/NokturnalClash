@@ -49,7 +49,7 @@ module.exports = function (grunt) {
                     'bower_components/ng-file-upload/ng-file-upload-shim.js',
                     'bower_components/ng-file-upload/ng-file-upload.js'
                 ],
-                dest: '<%= distFolder %>/js/lib.js'
+                dest: '<%= distFolder %>/js/angular.js'
             },
 
             angular_min: {
@@ -59,7 +59,7 @@ module.exports = function (grunt) {
                     'bower_components/ng-file-upload/ng-file-upload-shim.min.js',
                     'bower_components/ng-file-upload/ng-file-upload.min.js'
                 ],
-                dest: '<%= distFolder %>/js/lib.min.js'
+                dest: '<%= distFolder %>/js/angular.min.js'
             }
         },
 
@@ -87,6 +87,15 @@ module.exports = function (grunt) {
                     '**/*'
                 ],
                 dest: '<%= distFolder %>/images/',
+                expand: true
+            },
+
+            app_js: {
+                cwd: 'app/Resources/public/js',
+                src: [
+                    '**/*'
+                ],
+                dest: '<%= distFolder %>/js/',
                 expand: true
             },
 

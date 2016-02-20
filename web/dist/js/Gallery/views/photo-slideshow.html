@@ -1,0 +1,27 @@
+<div class="galleries-slideshow text-center">
+    <div class="galleries-controls pull-right">
+        <button class="btn-control" role="button" data-toggle="tooltip" data-placement="top" title="list of photos" data-ng-click="list()">
+            <span class="fa fa-th-large"></span>
+            <span class="sr-only">list</span>
+        </button>
+
+        <button class="btn-control" role="button" data-toggle="tooltip" data-placement="top" title="fullscreen" data-ng-click="fullscreen()">
+            <span class="fa fa-expand"></span>
+            <span class="sr-only">fullscreen</span>
+        </button>
+    </div>
+
+    <a class="galleries-photo-nav galleries-photo-previous" href="#" role="button" data-ng-click="previous()" data-ng-if="buttons.previous">
+        <span class="arrow-left"></span>
+        <span class="sr-only">previous photo</span>
+    </a>
+
+    <div class="galleries-photo">
+        <img data-ng-src="{{ current.path }}" />
+    </div>
+
+    <a class="galleries-photo-nav galleries-photo-next" href="#" role="button" data-ng-click="next()" data-ng-if="buttons.next">
+        <span class="arrow-right"></span>
+        <span class="sr-only">next photo</span>
+    </a>
+</div>

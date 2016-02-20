@@ -3,6 +3,7 @@
 namespace AppBundle\Entity\Gallery;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -22,6 +23,23 @@ class Gallery
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
+    /**
+     * Name of the Gallery
+     * @var string
+     *
+     * @ORM\Column(name="gallery_name")
+     * @Gedmo\Translatable
+     */
+    protected $name;
+
+    /**
+     * Used locale to override Translation listener`s locale
+     * this is not a mapped field of entity metadata, just a simple property
+     *
+     * @Gedmo\Locale
+     */
+    protected $locale;
 
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
@@ -48,6 +66,27 @@ class Gallery
     }
 
     /**
+     * Get name
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set name
+     * @param  string $name
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
      * Get Pages
      * @return ArrayCollection
      */
@@ -58,7 +97,7 @@ class Gallery
 
     /**
      * Add a Page to the Gallery
-     * @param Page $page
+     * @param  Page $page
      * @return $this
      */
     public function addPage(Page $page)
@@ -86,5 +125,14 @@ class Gallery
         }
 
         return $this;
+    }
+
+    /**
+     * Set locale for the current texts
+     * @param $locale
+     */
+    public function setTranslatableLocale($locale)
+    {
+        $this->locale = $locale;
     }
 }

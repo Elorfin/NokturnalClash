@@ -8,10 +8,10 @@
     <div class="row galleries" data-ng-app="gallery" data-ng-cloak="">
         <div class="galleries-list col-md-2 text-right">
             <ul>
-                {% for gallery in entities %}
-                    <li {% if gallery.id == current.id %}class="active"{% endif %}>
+                {% for gallery in galleries %}
+                    <li {% if current is not empty and gallery.id == current.id %}class="active"{% endif %}>
                         <a href="{{ url('galleries', { id: gallery.id }) }}">{{ gallery.name }}</a>
-                        {% if gallery.id == current.id %}<span class="sr-only">(current)</span>{% endif %}
+                        {% if current is not empty and gallery.id == current.id %}<span class="sr-only">(current)</span>{% endif %}
 
                         {#<div class="pull-left">
 
@@ -40,7 +40,7 @@
 
         {% if current is defined and current is not empty %}
             <h2 class="sr-only">{{ current.name }}</h2>
-            <photo-slideshow class="col-md-10" data-photos="{{ current.photos | json_encode | escape }}"></photo-slideshow>
+            <photo-slideshow class="col-md-10" data-photos="{{ current.pages | json_encode | escape }}"></photo-slideshow>
         {% endif %}
     </div>
 {% endblock %}
@@ -48,6 +48,6 @@
 {% block javascripts %}
     {{ parent() }}
 
-    <script type="text/javascript" src="{{ app.request.basepath }}/angular/lib/angular.min.js"></script>
-    <script type="text/javascript" src="{{ app.request.basepath }}/angular/src/gallery/app.js"></script>
+    <script type="text/javascript" src="{{ asset('dist/js/angular.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('dist/js/Gallery/PhotoSlideshow.js') }}"></script>
 {% endblock %}

@@ -5,8 +5,6 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -26,7 +24,6 @@ class ContactController extends Controller
      *
      * @Route("", name="contact")
      * @Method({"GET", "POST"})
-     * @Template()
      */
     public function indexAction(Request $request)
     {
@@ -74,8 +71,8 @@ class ContactController extends Controller
             }
         }
 
-        return [
+        return $this->render('::Contact/index.html.twig', [
             'contactForm' => $contactForm->createView(),
-        ];
+        ]);
     }
 }
