@@ -40,13 +40,13 @@ $ vi app/config/parameters.yml
 
 ## Development
 
-Install npm modules to build FrontEnd:
+Install npm modules to build FrontEnd :
 
 ```
 $ npm install
 ```
 
-Build FrontEnd
+Build FrontEnd :
 
 ```
 $ grunt build
@@ -55,6 +55,7 @@ $ grunt build
 ## License
 
 The code is provided under the MIT license.
+
 The content of the site (including logos, texts and images) are the strict property of my client and can't be use or modified in any way.
 If you have trouble knowing what you can use and what you can't feel free to email me.
 
