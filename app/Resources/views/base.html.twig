@@ -44,10 +44,13 @@
             {# Initialize Bootstrap #}
             <script type="text/javascript">
                 $(function () {
+                    // Add javascript scrollbar
+                    $(".content").mCustomScrollbar();
+
                     // Enable tooltip
                     $('body').tooltip({
                         selector: '[data-toggle="tooltip"]'
-                    })
+                    });
                 });
             </script>
         {% endblock %}

@@ -33,7 +33,7 @@
 
                 {% if about.instagram is defined and about.instagram is not empty %}
                 <li role="presentation">
-                    <a href="{{ about.instagram }}" title="{{ 'about.instagram'|trans }}">
+                    <a href="{{ about.instagram }}" title="{{ 'about.instagram'|trans }}" data-toggle="tooltip" data-placement="top">
                         <span class="fa fa-fw fa-instagram"></span>
                         <span class="sr-only">{{ 'about.instagram'|trans }}</span>
                     </a>
@@ -42,7 +42,7 @@
 
                 {% if about.flickr is defined and about.flickr is not empty %}
                 <li role="presentation">
-                    <a href="{{ about.flickr }}" title="{{ 'about.flickr'|trans }}">
+                    <a href="{{ about.flickr }}" title="{{ 'about.flickr'|trans }}" data-toggle="tooltip" data-placement="top">
                         <span class="fa fa-fw fa-flickr"></span>
                         <span class="sr-only">{{ 'about.flickr'|trans }}</span>
                     </a>
@@ -51,7 +51,7 @@
 
                 {% if about.facebook is defined and about.facebook is not empty %}
                 <li role="presentation">
-                    <a href="{{ about.facebook }}" title="{{ 'about.facebook'|trans }}">
+                    <a href="{{ about.facebook }}" title="{{ 'about.facebook'|trans }}" data-toggle="tooltip" data-placement="top">
                         <span class="fa fa-fw fa-facebook"></span>
                         <span class="sr-only">{{ 'about.facebook'|trans }}</span>
                     </a>

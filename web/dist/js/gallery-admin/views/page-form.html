@@ -1,0 +1,76 @@
+<div class="page text-right">
+    <a href="" class="page-delete" role="button" data-ng-click="deletePage()">
+        <span class="fa fa-trash"></span>
+        delete
+    </a>
+
+    <div class="page-content text-left">
+        <div class="form-group">
+            <ul class="nav nav-pills nav-justified">
+                <li role="presentation" data-ng-class="{ active: 'unique' == page.disposition }">
+                    <a href="#" data-ng-click="changeDisposition('unique')">
+                        <span class="fa fa-fw fa-stop"></span> 1 photo
+                    </a>
+                </li>
+                <li role="presentation" data-ng-class="{ active: 'double_portrait' == page.disposition }">
+                    <a href="#" data-ng-click="changeDisposition('double_portrait')">
+                        <span class="fa fa-fw fa-pause"></span> 2 photos portrait
+                    </a>
+                </li>
+                <li role="presentation" data-ng-class="{ active: 'double_landscape' == page.disposition }">
+                    <a href="#" data-ng-click="changeDisposition('double_landscape')">
+                        <span class="fa fa-fw fa-pause fa-rotate-90"></span> 2 photos landscape
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <div data-ng-class="{ 'col-md-12': 'unique' == page.disposition, 'col-md-6': 'unique' != page.disposition }">
+                <div data-ng-file-drop="" data-ng-file-select="" data-ng-model="page.primary" class="form-group image-drop text-center" data-drag-over-class="drag-over" data-accept="image/*">
+                    <div class="image-drop-help">
+                        <span class="fa fa-picture-o"></span>
+                        Drop image here or click to upload
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div data-ng-file-drop="" data-ng-file-select="" data-ng-model="page.secondary" class="form-group image-drop text-center" data-drag-over-class="drag-over" data-accept="image/*" data-ng-if="'unique' != page.disposition">
+                    <div class="image-drop-help">
+                        <span class="fa fa-picture-o"></span>
+                        Drop image here or click to upload
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="hidden" name="gallery_photos[{{ $index }}]['id']" value="{{ photo.id }}" />
+
+            <div class="form-group col-md-12">
+                <label class="sr-only" for="gallery_photos_{{ $index }}_name">Name</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="language language-en"></span></span>
+                    <input type="text" class="form-control" name="live_report_title[en]" placeholder="english version" />
+                </div>
+            </div>
+
+            <div class="form-group col-md-12">
+                <label class="sr-only" for="gallery_photos_{{ $index }}_name">Name</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="language language-fr"></span></span>
+                    <input type="text" class="form-control" name="live_report_title[en]" placeholder="english version" />
+                </div>
+            </div>
+
+            <div class="col-md-6 col-md-offset-3">
+                <label class="sr-only" for="gallery_photos_{{ $index }}_date">Date</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="fa fa-fw fa-calendar"></span></span>
+                    <input type="text" class="form-control" id="gallery_photos_{{ $index }}_date" name="gallery_photos[{{ $index }}]['date']" placeholder="Date of the photo" value="{{ photo.date }}" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
