@@ -1,0 +1,46 @@
+.mCSB_inside > .mCSB_container {
+    margin-right: floor(@grid-gutter-width / 2);
+}
+
+.mCSB_container {
+    > .container-fluid {
+        padding-right: 0;
+    }
+
+    &.mCS_no_scrollbar_y {
+        > .container-fluid {
+            padding-right: floor(@grid-gutter-width / 2);
+        }
+    }
+}
+
+.mCS-night {
+    &.mCSB_scrollTools {
+        .mCSB_draggerRail {
+            width: 8px;
+            background-color: rgba(0,0,0,0.4);
+            border-radius: 3px;
+        }
+
+        .mCSB_dragger {
+            .mCSB_dragger_bar {
+                width: 8px;
+                background-color: fade(@gray-dark, 40%); // rgba(0,0,0,0.75)
+                border-radius: 3px;
+            }
+
+            &:hover {
+                .mCSB_dragger_bar {
+                    background-color: fade(@gray-dark, 50%); // rgba(0,0,0,0.85)
+                }
+            }
+
+            &:active,
+            &.mCSB_dragger_onDrag {
+                .mCSB_dragger_bar {
+                    background-color: fade(@gray-dark, 55%); // rgba(0,0,0,0.9)
+                }
+            }
+        }
+    }
+}

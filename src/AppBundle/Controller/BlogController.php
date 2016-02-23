@@ -60,12 +60,12 @@ class BlogController extends Controller
     {
         // Create the Form
         $post = new Post();
-        $form = $this->createForm(new PostType(), $post);
+        $form = $this->createForm(PostType::class, $post);
 
         // Check if the form is submitted or just rendered
         $this->handleForm($form, $post, $request);
 
-        return $this->render('::Blog/new.html.twig', [
+        return $this->render('::Blog/form.html.twig', [
             'form' => $form->createView(),
         ]);
     }
@@ -82,12 +82,12 @@ class BlogController extends Controller
     public function editAction(Post $post, Request $request)
     {
         // Create the Form
-        $form = $this->createForm(new PostType(), $post, [ 'method' => 'PUT' ]);
+        $form = $this->createForm(PostType::class, $post, [ 'method' => 'PUT' ]);
 
         // Check if the form is submitted or just rendered
         $this->handleForm($form, $post, $request);
 
-        return $this->render('::Blog/edit.html.twig', [
+        return $this->render('::Blog/form.html.twig', [
             'form' => $form->createView(),
         ]);
     }

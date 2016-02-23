@@ -6,6 +6,10 @@ link.galleries:         galleries
 link.blog:              live reports
 link.contact:           contact
 
+# Localization
+locale.en: English
+locale.fr: Français
+
 # About
 about.title:        About
 about.edit:         Edit

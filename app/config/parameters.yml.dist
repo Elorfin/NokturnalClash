@@ -19,3 +19,6 @@ parameters:
 
     # Secret Token
     secret:            526d4b9bbda45c2440ae1e76036a117048de8178
+
+    # Uploads
+    upload_dir: upload

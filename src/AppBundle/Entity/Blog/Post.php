@@ -24,7 +24,16 @@ class Post
     protected $id;
 
     /**
-     * Content text
+     * Title of the Post
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string")
+     * @Gedmo\Translatable
+     */
+    protected $title;
+
+    /**
+     * Content text of the Post
      * @var string
      *
      * @ORM\Column(name="content", type="text", nullable=true)
@@ -35,6 +44,7 @@ class Post
     /**
      * Used locale to override Translation listener`s locale
      * this is not a mapped field of entity metadata, just a simple property
+     * @var string
      *
      * @Gedmo\Locale
      */
@@ -42,7 +52,6 @@ class Post
 
     /**
      * Get id
-     *
      * @return integer
      */
     public function getId()
@@ -51,10 +60,29 @@ class Post
     }
 
     /**
+     * Get title
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set title
+     * @param  string $title
+     * @return Post
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
      * Set content
-     *
      * @param string $content
-     *
      * @return Post
      */
     public function setContent($content)
@@ -66,7 +94,6 @@ class Post
 
     /**
      * Get content
-     *
      * @return string
      */
     public function getContent()
