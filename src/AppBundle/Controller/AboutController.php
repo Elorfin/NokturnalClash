@@ -26,10 +26,6 @@ class AboutController extends Controller
      */
     public function indexAction()
     {
-        $this->addFlash('success', $this->get('translator')->trans('about.message.update_success', array()));
-        $this->addFlash('warning', $this->get('translator')->trans('about.message.update_success', array()));
-        $this->addFlash('error', $this->get('translator')->trans('about.message.update_success', array()));
-
         // We do nothing because About data are already available through all the Application via a Twig extension
         return $this->render('::About/index.html.twig', []);
     }
