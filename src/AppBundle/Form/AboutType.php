@@ -15,7 +15,7 @@ class AboutType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('content')
+            ->add('presentation')
             ->add('email')
             ->add('facebook')
             ->add('instagram')

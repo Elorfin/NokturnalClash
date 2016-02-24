@@ -26,6 +26,10 @@ class AboutController extends Controller
      */
     public function indexAction()
     {
+        $this->addFlash('success', $this->get('translator')->trans('about.message.update_success', array()));
+        $this->addFlash('warning', $this->get('translator')->trans('about.message.update_success', array()));
+        $this->addFlash('error', $this->get('translator')->trans('about.message.update_success', array()));
+
         // We do nothing because About data are already available through all the Application via a Twig extension
         return $this->render('::About/index.html.twig', []);
     }
@@ -41,7 +45,7 @@ class AboutController extends Controller
     public function editAction(Request $request)
     {
         $about = $this->getDoctrine()->getRepository('AppBundle:About')->findOne();
-        $form = $this->createForm(new AboutType(), $about);
+        $form = $this->createForm(AboutType::class, $about);
 
         if ($request->isMethod('POST')) {
             // Process the Form if the User is submitting data
@@ -52,12 +56,15 @@ class AboutController extends Controller
                 $this->getDoctrine()->getManager()->persist($about);
                 $this->getDoctrine()->getManager()->flush();
 
+                // Display confirm message
+                $this->addFlash('success', $this->get('translator')->trans('about.message.update_success', array()));
+
                 // Redirect to the show Post action
                 return $this->redirectToRoute('about');
             }
         }
 
-        return $this->render('::About/edit.html.twig', [
+        return $this->render('::About/form.html.twig', [
             'form' => $form->createView(),
         ]);
     }

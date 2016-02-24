@@ -1,18 +1,24 @@
 {% extends "::base.html.twig" %}
 
 {# Title of the Page #}
-{% block title %}{{ parent() }} - {% if isNew %}{{ 'blog.new.title'|trans }}{% else %}{{ 'blog.edit.title'|trans }}{% endif %}{% endblock %}
+{% block title %}{{ parent() }} - {{ 'about.edit.title'|trans }}{% endblock %}
 
 {# Content of the Page #}
 {% block content -%}
-    <h1 class="sr-only">{% if isNew %}{{ 'blog.new.title'|trans }}{% else %}{{ 'blog.edit.title'|trans }}{% endif %}</h1>
+    <h1 class="sr-only">{{ 'about.edit.title'|trans }}</h1>
 
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             {{ form_start(form) }}
             <div class="panel panel-default">
                 <div class="panel-body">
-                    {{ form_widget(form) }}
+                    {{ form_row(form.presentation) }}
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    {{ form_rest(form) }}
                 </div>
             </div>
 

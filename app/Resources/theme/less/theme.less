@@ -136,6 +136,25 @@ header {
 .breadcrumb {
     margin-left: 70px + floor(@grid-gutter-width / 2);
     margin-bottom: floor(@grid-gutter-width / 2);
+
+    > li + li::before {
+        font-style: normal;
+    }
+
+    .active {
+        font-style: italic;
+    }
+}
+
+.alert {
+    margin-bottom: floor(@grid-gutter-width / 2);
+
+    &.alert-dismissible {
+        .close {
+            font-size: 14px;
+            font-weight: normal;
+        }
+    }
 }
 
 .content {

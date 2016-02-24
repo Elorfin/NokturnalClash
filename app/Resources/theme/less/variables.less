@@ -487,17 +487,17 @@
 //
 //## Define colors for form feedback states and, by default, alerts.
 
-@state-success-text:             #3c763d;
-@state-success-bg:               #dff0d8;
-@state-success-border:           darken(spin(@state-success-bg, -10), 5%);
+@state-success-text:             lighten(@brand-success, 50%);
+@state-success-bg:               @brand-success;
+@state-success-border:           transparent;
 
-@state-info-text:                #31708f;
-@state-info-bg:                  #d9edf7;
+@state-info-text:                lighten(@brand-info, 50%);
+@state-info-bg:                  @brand-info;
 @state-info-border:              darken(spin(@state-info-bg, -10), 7%);
 
-@state-warning-text:             #8a6d3b;
-@state-warning-bg:               #fcf8e3;
-@state-warning-border:           darken(spin(@state-warning-bg, -10), 5%);
+@state-warning-text:             lighten(@brand-warning, 50%);
+@state-warning-bg:               @brand-warning;
+@state-warning-border:           transparent;
 
 @state-danger-text:              lighten(@brand-danger, 50%);
 @state-danger-bg:                @brand-danger;
@@ -611,7 +611,7 @@
 //
 //## Define alert colors, border radius, and padding.
 
-@alert-padding:               10px;
+@alert-padding:               5px;
 @alert-border-radius:         @border-radius-base;
 @alert-link-font-weight:      bold;
 
@@ -783,9 +783,9 @@
 //** Breadcrumb background color
 @breadcrumb-bg:                 transparent;
 //** Breadcrumb text color
-@breadcrumb-color:              @gray;
+@breadcrumb-color:              @gray-dark;
 //** Text color of current page in the breadcrumb
-@breadcrumb-active-color:       @gray-lighter;
+@breadcrumb-active-color:       @gray;
 //** Textual separator for between breadcrumb elements
 @breadcrumb-separator:          "»";
 

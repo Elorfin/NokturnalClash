@@ -61,12 +61,13 @@ class ContactController extends Controller
                     $this->get('mailer')->send($message);
 
                     // Display success message
-                    $this->addFlash('success', $this->get('translator')->trans('contact.message_sent', array()));
+                    $this->addFlash('success', $this->get('translator')->trans('contact.message.sent', array()));
 
                     // Redirect (even if it's to the same route) to avoid User sending multiple emails by refreshing the Page
                     return $this->redirectToRoute('contact');
                 } catch(\Exception $e) {
                     // Display error message
+                    $this->addFlash('success', $this->get('translator')->trans('contact.message.not_sent', array()));
                 }
             }
         }

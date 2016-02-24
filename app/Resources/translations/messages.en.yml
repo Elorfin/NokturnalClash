@@ -1,36 +1,87 @@
 # Application
-link.current:           current section
-link.toggle_navigation: toggle navigation
-link.about:             about
-link.galleries:         galleries
-link.blog:              live reports
-link.contact:           contact
+app:
+    # Generic navigation strings
+    nav:
+        toggle:  toggle navigation
+        current: current section
+
+    # Generic action strings
+    action:
+        save:    Save
+        cancel:  Cancel
 
 # Localization
-locale.en: English
-locale.fr: Français
+locale:
+    en: English
+    fr: Français
 
 # About
-about.title:        About
-about.edit:         Edit
-about.no_record:    No presentation found.
-about.email:        Email
-about.facebook:     Facebook
-about.flickr:       Flickr
-about.instagram:    Instagram
-about.live_journal: LiveJournal
+about:
+    # Header link
+    nav:
+        link:     about
+
+    # Title of the Page
+    title:        About
+    edit:         Edit
+    no_record:    No presentation found.
+    email:        Email
+    facebook:     Facebook
+    flickr:       Flickr
+    instagram:    Instagram
+    live_journal: LiveJournal
+
+    # Message
+    message:
+        update_success: Your information have been correctly updated.
 
 # Blog
-blog.title:     Live Reports
-blog.no_record: No post found in the Blog.
+blog:
+    # Header link
+    nav:
+        link:      blog
+
+    # List of Posts
+    list:
+        title:     Blog
+        no_record: No post found in the Blog.
+
+    # New Post form
+    new:
+        title:    New Blog post
+        validate: Create
+
+    # Edit Post form
+    edit:
+        title:    Edit Blog post
+        validate: Edit
 
 # Contact
-contact.title:            Contact
-contact.follow_me:        Follow me
-contact.contact_me:       Contact me
-contact.send_message:     send my message
-contact.message_sent:     Your message has been correctly sent.
-contact.message_not_sent: We are sorry, your message could not be sent. Please try again later.
+contact:
+    # Header link
+    nav:
+        link:         contact
+
+    # Title of the Page
+    title:            Contact
+
+    # Sections of the Contact page
+    section:
+        follow_me:    Follow me
+        contact_me:   Contact me
+
+    send_message:     send my message
+    message:
+        sent:     Your message has been correctly sent.
+        not_sent: We are sorry, your message could not be sent. Please try again later.
 
 # Galleries
-gallery.title: Galleries
+gallery:
+    # Header link
+    nav:
+        link:      galleries
+
+      # List of Galleries
+    list:
+        title:     Galleries
+        no_record: No gallerie found.

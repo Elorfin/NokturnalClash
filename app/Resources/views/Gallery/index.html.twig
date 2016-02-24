@@ -1,17 +1,19 @@
 {% extends "::base.html.twig" %}
 
 {# Title of the Page #}
-{% block title %}{{ parent() }} - {{ 'gallery.title'|trans }}{% endblock %}
+{% block title %}{{ parent() }} - {{ 'gallery.list.title'|trans }}{% endblock %}
 
 {# Content of the Page #}
 {% block content %}
+    <h1 class="sr-only">{{ 'gallery.list.title'|trans }}</h1>
+
     <div class="row galleries" data-ng-app="gallery" data-ng-cloak="">
         <div class="galleries-list col-md-2 text-right">
             <ul>
                 {% for gallery in galleries %}
                     <li {% if current is not empty and gallery.id == current.id %}class="active"{% endif %}>
                         <a href="{{ url('galleries', { id: gallery.id }) }}">{{ gallery.name }}</a>
-                        {% if current is not empty and gallery.id == current.id %}<span class="sr-only">(current)</span>{% endif %}
+                        {% if current is not empty and gallery.id == current.id %}<span class="sr-only">({{ 'app.nav.current'|trans }})</span>{% endif %}
 
                         {#<div class="pull-left">
 

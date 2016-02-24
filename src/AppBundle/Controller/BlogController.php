@@ -66,7 +66,8 @@ class BlogController extends Controller
         $this->handleForm($form, $post, $request);
 
         return $this->render('::Blog/form.html.twig', [
-            'form' => $form->createView(),
+            'isNew' => true,
+            'form'  => $form->createView(),
         ]);
     }
 
@@ -76,7 +77,7 @@ class BlogController extends Controller
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @return array
      *
-     * @Route("/{id}", name="blog_edit", requirements={"id" = "\d+"})
+     * @Route("/{id}/edit", name="blog_edit", requirements={"id" = "\d+"})
      * @Method({"GET", "PUT"})
      */
     public function editAction(Post $post, Request $request)
@@ -88,7 +89,8 @@ class BlogController extends Controller
         $this->handleForm($form, $post, $request);
 
         return $this->render('::Blog/form.html.twig', [
-            'form' => $form->createView(),
+            'isNew' => false,
+            'form'  => $form->createView(),
         ]);
     }
 
